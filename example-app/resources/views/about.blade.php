@@ -2,11 +2,7 @@
 
 @section('container')
     <h1>Halaman About</h1>
-    {{-- <h3><?php echo $name;?></h3>
-    <p><?= $email; ?></p>
-    <img src="img/<?= $image; ?>" alt="<?= $name; ?>" width="200">  --}}
-
     <h3>{{ $name }}</h3>
     <p>{{ $email }}</p>
-    <img src="img/{{ $image }}" alt="{{ $name }}" width="200">    
+    <img src="img/{{ $image }}" alt="{{ $name }}" width="200" class="img-thumbnail">    
 @endsection

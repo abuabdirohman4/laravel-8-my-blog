@@ -5,19 +5,12 @@
 @section('container')
     <h1 class="mb-3">{{ $post->title }}</h1>
 
-    <p>By Abu Abdirohman in
-        <a href="/categories/{{ $post->category->slug }}">
-            {{ $post->category->name }}
-        </a>
-        {{-- <a href="/categories/">
-            {{ $post->categories}}
-        </a> --}}
+    <p>
+        By <a href="/categories/{{ $post->user->name }}" class="text-decoration-none">{{ $post->user->name }}</a>
+        in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>
     </p>
 
-    {{-- {!! Blade Escape Character  !} --}}
     {!! $post->body !!}
 
-    <p class="mt-3">
-        <a href="/blog">Back To Posts</a>
-    </p>
+    <a href="/blog" class="d-block mt-3 text-decoration-none">Back To Posts</a>
 @endsection

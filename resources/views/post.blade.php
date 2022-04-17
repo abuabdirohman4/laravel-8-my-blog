@@ -12,5 +12,5 @@
 
     {!! $post->body !!}
 
-    <a href="/blog" class="d-block mt-3 text-decoration-none">Back To Posts</a>
+    <a href="/posts" class="d-block mt-3 text-decoration-none">Back To Posts</a>
 @endsection

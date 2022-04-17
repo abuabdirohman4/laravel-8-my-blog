@@ -1,6 +1,3 @@
-{{-- dump die = for checking value on variable & die code after the line --}}
-{{-- @dd($posts) --}}
-
 @extends('layouts.main')
 
 @section('container')
@@ -8,7 +5,7 @@
 
     @if ($posts->count()) {{-- true jika lebih dari 0, false jika kosong atau 0 --}}
         <div class="card mb-3">
-            <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="$posts[0]->category->name">
+            <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="{{$posts[0]->category->name}}">
             <div class="card-body text-center">
             <h3 class="card-title">
                 <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">

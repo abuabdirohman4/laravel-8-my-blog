@@ -21,34 +21,48 @@
         </ul>
         <ul class="navbar-nav ms-auto">
             @auth
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Welcome back, {{ auth()->user()->name }}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/dashboard">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="/dashboard">
                             <i class="bi bi-layout-text-sidebar-reverse"></i>
                             My Dashboard
-                        </a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                <i class="bi bi-box-arrow-in-left"></i>
+                                Logout
+                            </button>
+                        </form>
+                        {{-- <a class="dropdown-item" href="#">
                             <i class="bi bi-box-arrow-in-left"></i>
                             Logout
-                        </a></li>
-                    </ul>
-                </li>
+                        </a> --}}
+                    </li>
+                </ul>
+            </li>
             @else
-                <li class="nav-item">
-                    <a class="nav-link {{ ($active === "login") ? 'active' : '' }}" href="/login">
-                        <i class="bi bi-box-arrow-in-right"></i>
-                        Login
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ ($active === "register") ? 'active' : '' }}" href="/register">
-                        Register
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link {{ ($active === "login") ? 'active' : '' }}" href="/login">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    Login
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ ($active === "register") ? 'active' : '' }}" href="/register">
+                    <i class="bi bi-pencil-square"></i>
+                    Register
+                </a>
+            </li>
             @endauth
         </ul>
         </div>

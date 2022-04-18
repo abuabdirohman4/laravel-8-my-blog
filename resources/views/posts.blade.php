@@ -3,6 +3,14 @@
 @section('container')
     <h1 class="mb-5">{{ $title }}</h1>
 
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/posts" method="get">
+
+            </form>
+        </div>
+    </div>
+
     @if ($posts->count()) {{-- true jika lebih dari 0, false jika kosong atau 0 --}}
         <div class="card mb-3">
             <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="{{$posts[0]->category->name}}">
@@ -22,9 +30,6 @@
             <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-primary">Read More..</a>
             </div>
         </div>
-    @else
-        <p class="text-center fs-4">No Post Found</p>
-    @endif
 
     <div class="container">
         <div class="row">
@@ -53,20 +58,7 @@
         </div>
     </div>
 
-    {{-- @foreach ($posts->skip(1) as $post)
-        <article class="mb-5">
-            <h2>
-                <a href="/posts/{{ $post->slug }}" class="text-decoration-none">
-                    {{ $post->title }}
-                </a>
-            </h2>
-            <p>
-                By <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a>
-                in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>
-            </p>
-            <p>{{ $post->excerpt }}</p>
-
-            <a href="/posts/{{ $post->slug }}" class="text-decoration-none">Read More..</a>
-        </article>
-    @endforeach --}}
+    @else
+        <p class="text-center fs-4">No Post Found</p>
+    @endif
 @endsection

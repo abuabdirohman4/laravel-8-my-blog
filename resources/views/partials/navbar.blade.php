@@ -43,10 +43,6 @@
                                 Logout
                             </button>
                         </form>
-                        {{-- <a class="dropdown-item" href="#">
-                            <i class="bi bi-box-arrow-in-left"></i>
-                            Logout
-                        </a> --}}
                     </li>
                 </ul>
             </li>

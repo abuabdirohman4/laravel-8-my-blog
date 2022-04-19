@@ -53,12 +53,12 @@
                     Login
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ ($active === "register") ? 'active' : '' }}" href="/register">
                     <i class="bi bi-pencil-square"></i>
                     Register
                 </a>
-            </li>
+            </li> --}}
             @endauth
         </ul>
         </div>

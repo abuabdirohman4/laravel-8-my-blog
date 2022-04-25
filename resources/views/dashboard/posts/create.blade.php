@@ -5,7 +5,7 @@
         <h1 class="h2">Create New Post</h1>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-lg-8">
         <form action="/dashboard/posts" method="post">
             @csrf
             <div class="mb-3">
@@ -15,6 +15,19 @@
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
                 <input type="text" class="form-control" id="slug" name='slug'>
+            </div>
+            <div class="mb-3">
+                <label for="cateogyr" class="form-label">Category</label>
+                <select class="form-select" name="category">
+                    @foreach ($categories as $categoy)
+                        <option value="{{ $categoy->id }}">{{ $categoy->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Body</label>
+                <input id="body" type="hidden" name="body">
+                <trix-editor input="body"></trix-editor>
             </div>
             <button type="submit" class="btn btn-primary">Create Post</button>
         </form>
@@ -32,6 +45,10 @@
                 // .then(data => console.log(data.slug))
                 .then(data => slug.value = data.slug)
         })
+
+        // Trix Editor
+        // document.addEventListener('tirx-file-accept', function(e) {
+        //     e.preventDefault();
+        // }
     </script>
 @endpush
-

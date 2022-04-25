@@ -12,11 +12,23 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.js"></script>
+
+    <style>
+        /* Delete File Attachment Trix Editor */
+        /* trix-toolbar .trix-button-row .trix-button-group[data-trix-button-group=”file-tools”] {
+            display: none;
+        } */
+        trix-toolbar .trix-button-group--file-tools{
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-
-
     @include('dashboard.layouts.header')
 
     <div class="container-fluid">

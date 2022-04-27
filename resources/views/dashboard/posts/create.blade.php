@@ -10,15 +10,15 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" required>
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" id="slug" name='slug'>
+                <input type="text" class="form-control" id="slug" name='slug' required>
             </div>
             <div class="mb-3">
-                <label for="cateogyr" class="form-label">Category</label>
-                <select class="form-select" name="category">
+                <label for="category_id" class="form-label">Category</label>
+                <select class="form-select" name="category_id">
                     @foreach ($categories as $categoy)
                         <option value="{{ $categoy->id }}">{{ $categoy->name }}</option>
                     @endforeach
@@ -47,8 +47,8 @@
         })
 
         // Trix Editor
-        // document.addEventListener('tirx-file-accept', function(e) {
-        //     e.preventDefault();
-        // }
+        document.addEventListener('tirx-file-accept', function(e) {
+            e.preventDefault();
+        })
     </script>
 @endpush

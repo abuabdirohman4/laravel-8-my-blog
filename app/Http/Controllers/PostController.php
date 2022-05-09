@@ -9,11 +9,12 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('landingpage.posts', [
-            "title" => "All Post",
-            "active" => "posts",
-            "posts" => Post::latest()->get(),
-        ]);
+        return Post::latest()->get();
+        // return view('landingpage.posts', [
+        //     "title" => "All Post",
+        //     "active" => "posts",
+        //     "posts" => Post::latest()->get(),
+        // ]);
     }
 
     // public function show($id)

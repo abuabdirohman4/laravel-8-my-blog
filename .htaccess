@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^blog.abuabdirohman.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^blog.abuabdirohman.com$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]

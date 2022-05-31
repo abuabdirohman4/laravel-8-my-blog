@@ -13,7 +13,7 @@ Route::get('/', function () {
         "title" => "Home",
         "active" => "home",
     ]);
-});
+})->name('home');
 Route::get('/about', function () {
     return view('landingpage.about', [
         "title" => "About",

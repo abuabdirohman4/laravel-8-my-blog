@@ -40,13 +40,14 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label @error('image') is-invalid @enderror">Post Image</label>
-                <input class="form-control" type="file" id="image" name="image">
+                <img class="img-preview img-fluid col-sm-5 mb-3">
+                <input class="form-control" type="file" id="image" name="image" onchange="previewImage()">
                 @error('image')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-              </div>
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
             <div class="mb-3">
                 <label for="body" class="form-label">Body</label>
                 @error('body')
@@ -62,6 +63,7 @@
 
 @push('script')
     <script>
+        // Slug Generate
         const title = document.querySelector('#title');
         const slug = document.querySelector('#slug');
 
@@ -76,5 +78,20 @@
         document.addEventListener('tirx-file-accept', function(e) {
             e.preventDefault();
         })
+
+        // Preview Image
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.img-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent) {
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
     </script>
 @endpush

@@ -45,12 +45,20 @@ class DashboardPostController extends Controller
     public function store(Request $request)
     {
         // return $request;
+        // ddd($request);
+        // return $request->file('image')->store('post-images');
+
         $validatedDate = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
+            'image'=> 'image',
             'body' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validatedDate['image'] = $request->file('image')->store('post-images');
+        };
 
         $validatedDate['user_id'] = auth()->user()->id;
         $validatedDate['excerpt'] = Str::limit(strip_tags($request->body),100);

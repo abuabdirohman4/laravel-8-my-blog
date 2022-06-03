@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345')
         ]);
 
-        User::factory()->create();
+        User::factory(2)->create();
 
         Category::create([
             'name' => 'Programming',
@@ -40,6 +40,6 @@ class DatabaseSeeder extends Seeder
             'slug' => 'personal'
         ]);
 
-        Post::factory(20)->create();
+        Post::factory(8)->create();
     }
 }

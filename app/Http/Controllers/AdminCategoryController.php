@@ -17,7 +17,7 @@ class AdminCategoryController extends Controller
         // if (auth()->user()->username !== 'abuabdirohman'){
         //     abort(403);
         // }
-        
+
         // if (auth()->guest() || auth()->user()->username !== 'abuabdirohman') {
         //     abort(403);
         // }
@@ -26,6 +26,8 @@ class AdminCategoryController extends Controller
         //     abort(403);
         // }
 
+        // Cek pakai gate, 'admin' ini nama gate
+        $this->authorize('admin');
 
         return view('dashboard.categories.index', [
             'categories' => Category::all()

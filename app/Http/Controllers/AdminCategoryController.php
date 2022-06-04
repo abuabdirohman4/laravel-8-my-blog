@@ -14,17 +14,18 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
+        // if (auth()->user()->username !== 'abuabdirohman'){
+        //     abort(403);
+        // }
+        
         // if (auth()->guest() || auth()->user()->username !== 'abuabdirohman') {
         //     abort(403);
         // }
 
-        if (!auth()->check() || auth()->user()->username !== 'abuabdirohman') {
-            abort(403);
-        }
-
-        // if (auth()->user()->username !== 'abuabdirohman'){
+        // if (!auth()->check() || auth()->user()->username !== 'abuabdirohman') {
         //     abort(403);
         // }
+
 
         return view('dashboard.categories.index', [
             'categories' => Category::all()

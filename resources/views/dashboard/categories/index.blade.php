@@ -8,7 +8,7 @@
     <div class="table-responsive col-lg-6 alert">
 
         @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="alert alert-success alert-dismissible col-lg-6 fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
             </div>

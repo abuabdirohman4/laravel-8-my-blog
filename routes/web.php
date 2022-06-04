@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 
 Route::get('/', function () {
@@ -13,7 +14,7 @@ Route::get('/', function () {
         "title" => "Home",
         "active" => "home",
     ]);
-});
+})->name('home');
 Route::get('/about', function () {
     return view('landingpage.about', [
         "title" => "About",
@@ -63,3 +64,5 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');

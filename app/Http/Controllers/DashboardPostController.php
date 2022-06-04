@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardPostController extends Controller
@@ -45,12 +46,20 @@ class DashboardPostController extends Controller
     public function store(Request $request)
     {
         // return $request;
+        // ddd($request);
+        // return $request->file('image')->store('post-images');
+
         $validatedDate = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
+            'image'=> 'image|mimes:jpeg,bmp,png',
             'body' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validatedDate['image'] = $request->file('image')->store('post-images');
+        };
 
         $validatedDate['user_id'] = auth()->user()->id;
         $validatedDate['excerpt'] = Str::limit(strip_tags($request->body),100);
@@ -83,7 +92,10 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('dashboard.posts.edit', [
+            "categories" => Category::all(),
+            "post" => $post,
+        ]);
     }
 
     /**
@@ -95,7 +107,32 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'category_id' => 'required',
+            'image'=> 'image|mimes:jpeg,bmp,png',
+            'body' => 'required'
+        ];
+
+        if ($request->slug != $post->slug) {
+            $rules['slug'] = 'required|unique:posts';
+        };
+
+        $validatedDate = $request->validate($rules);
+
+        if ($request->oldImage) {
+            Storage::delete($request->oldImage);
+        }
+
+        $validatedDate['image'] = $request->file('image')->store('post-images');
+
+        $validatedDate['user_id'] = auth()->user()->id;
+        $validatedDate['excerpt'] = Str::limit(strip_tags($request->body),100);
+
+        Post::where('id', $post->id)
+                ->update($validatedDate);
+
+        return redirect('/dashboard/posts/')->with('success', 'Post has been updated');
     }
 
     /**
@@ -106,6 +143,10 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if ($post->image) {
+            Storage::delete($post->image);
+        }
+
         Post::destroy($post->id);
 
         return redirect('/dashboard/posts/')->with('success', 'Success deleted post');

@@ -20,9 +20,9 @@
         </h6>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : ''}}" href="/dashboard/posts">
+                <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : ''}}" href="/dashboard/categories">
                     <span data-feather="grid"></span>
-                    My Post
+                    Post Categories
                 </a>
             </li>
         </ul>

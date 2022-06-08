@@ -14,6 +14,17 @@ class Post extends Model
     protected $guarded = ['id'];
     protected $with = ['author', 'category'];
 
+    public function scopeFilter($query, array $filters) {
+        // if(request('search')) {
+        //     return $query->where('title', 'like', '%' . request('search') . '%')
+        //           ->orWhere('body', 'like', '%' . request('search') . '%');
+        // }
+        if(isset($filters['search']) ? $filters['search'] : false) {
+            return $query->where('title', 'like', '%' . $filters['search'] . '%')
+                  ->orWhere('body', 'like', '%' . $filters['search'] . '%');
+        }
+    }
+
     public function category()
     // public function categories()
     {

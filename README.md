@@ -1,4 +1,4 @@
-# WPU Blog (Ongoing)
+# My Blog (Ongoing)
 
 Refrence - [Belajar Laravel 8 ](https://www.youtube.com/playlist?list=PLFIM0718LjIWiihbBIq-SWPU6b6x21Q_2)
 

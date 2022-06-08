@@ -14,7 +14,7 @@
     {{-- My Styles --}}
     <link rel="stylesheet" href="/css/style.css">
 
-    <title>WPU Blog | {{ $title }}</title>
+    <title>My Blog | {{ $title }}</title>
   </head>
   <body>
     @include('partials.navbar')

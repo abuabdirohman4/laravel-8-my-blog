@@ -1,16 +1,19 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1 class="mb-5">{{ $title }}</h1>
+    <h1 class="mb-5 text-center">{{ $title }}</h1>
 
     {{-- Search --}}
-    {{-- <div class="row">
+    <div class="row justify-content-center mb-3">
         <div class="col-md-6">
             <form action="/posts" method="get">
-
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+                    <button class="btn btn-danger" type="submit">Search</button>
+                </div>
             </form>
         </div>
-    </div> --}}
+    </div>
 
     @if ($posts->count()) {{-- true jika lebih dari 0, false jika kosong atau 0 --}}
         <div class="card mb-3">

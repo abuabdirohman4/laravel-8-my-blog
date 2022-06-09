@@ -1,4 +1,4 @@
-# My Blog (Ongoing)
+# My Blog (DONE)
 
 Refrence - [Belajar Laravel 8 ](https://www.youtube.com/playlist?list=PLFIM0718LjIWiihbBIq-SWPU6b6x21Q_2)
 

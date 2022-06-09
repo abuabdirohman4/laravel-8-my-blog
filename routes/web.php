@@ -31,19 +31,23 @@ Route::get('/categories', function () {
         'categories' => Category::all()
     ]);
 });
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('landingpage.posts', [
-        'title' => "Post By Category : $category->name",
-        "active" => "posts",
-        'posts' => $category->posts->load('category', 'author'),
-    ]);
-});
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('landingpage.posts', [
-        'title' => "Post By Author : $author->name",
-        'posts' => $author->posts->load('category', 'author'),
-    ]);
-});
+// Route::get('/categories/{category:slug}', function (Category $category) {
+//     return view('landingpage.posts', [
+//         'title' => "Post By Category : $category->name",
+//         "active" => "posts",
+//          // Lazy Eager Loading
+//         'posts' => $category->posts->load('category', 'author'),
+//     ]);
+// });
+// Route::get('/authors/{author:username}', function (User $author) {
+//     return view('landingpage.posts', [
+//         'title' => "Post By Author : $author->name",
+//         'active' => "posts",
+//         // Lazy Eager Loading
+//         'posts' => $author->posts->load('category', 'author'),
+//     ]);
+// });
+
 // Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/dashboard', function () {
     return view('dashboard.index', [

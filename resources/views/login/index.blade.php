@@ -40,7 +40,22 @@
 
                     <button class="w-100 btn btn-lg btn-danger" type="submit">Login</button>
                 </form>
-                <small class="d-block text-center mt-3">Not registered? <a href="/register">Register Now</a></small>
+                <small class="d-block text-center mt-3 mb-4">Not registered? <a href="/register">Register Now</a></small>
+                <h5 class="text-center">Akun Demo</h5>
+                <table class="d-flex justify-content-center">
+                    <tr>
+                        <td>Email</td>
+                        <td>&emsp;:</td>
+                        <td>&ensp;admin@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>&emsp;:</td>
+                        <td>&ensp;password</td>
+                    </tr>
+                </table>
+            </main>
+            <main>
             </main>
         </div>
     </div>

@@ -20,11 +20,11 @@ class PostController extends Controller
         return view('landingpage.posts', [
             "title" => "All Post",
             "active" => "posts",
-            // "posts" => Post::get(),
-            // "posts" => Post::latest()->get(),
-            // "posts" => $posts->get(),
+            "posts" => Post::latest()->filter(request(['search', 'category']))->get(),
             // "posts" => Post::latest()->filter()->get(),
-            "posts" => Post::latest()->filter(request(['search']))->get(),
+            // "posts" => $posts->get(),
+            // "posts" => Post::latest()->get(),
+            // "posts" => Post::get(),
         ]);
     }
 

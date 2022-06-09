@@ -22,6 +22,7 @@ Blog that created with admin dashboard & guest view page, there's some features 
 - Pagination
 - Slug Generator
 - Trix Editor
+- Clockwork & N+1 Problem
 
 ## License
 

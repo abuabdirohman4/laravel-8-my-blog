@@ -27,5 +27,3 @@ Blog that created with admin dashboard & guest view page, there's some features 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-try

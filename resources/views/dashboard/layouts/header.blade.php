@@ -5,7 +5,7 @@
         </a>
         <a class="navbar-brand ms-3" href="/">Visit Site</a>
     </div> --}}
-    <div class="navbar-brand col-md-3 col-lg-2 ms-auto py-0 me-0 px-3">
+    <div class="navbar-brand col-12 col-md-3 col-lg-2 ms-auto py-0 me-0 px-3">
         <div class="nav-item dropdown">
             <a class="nav-link title-dashboard dropdown-toggle text-white" href="/dashboard" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 My Blog

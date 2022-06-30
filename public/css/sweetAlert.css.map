@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAIgB,IAJZ,CACA,gBAAgB,CACZ,YAAY,CACR,cAAc,CACV,cAAc,CAAC;EACX,gBAAgB,EAAE,OAAO;CAC5B",
+    "sources": [
+        "sweetAlert.scss"
+    ],
+    "names": [],
+    "file": "sweetAlert.css"
+}

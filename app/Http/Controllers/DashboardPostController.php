@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardPostController extends Controller
 {
@@ -18,6 +19,11 @@ class DashboardPostController extends Controller
      */
     public function index()
     {
+        // Alert::success('Success Title', 'Success Message');
+        // alert()->success('Title','Lorem Lorem Lorem');
+        // example:
+        // Alert::success('Success Title', 'Success Message')->autoClose(1000000);
+
         // return Post::all();
         // return Post::where('user_id', auth()->user()->id)->get();
         return view('dashboard.posts.index', [
@@ -67,7 +73,8 @@ class DashboardPostController extends Controller
         Post::create($validatedDate);
 
         // return $validatedDate;
-        return redirect('/dashboard/posts/')->with('success', 'Success created new post');
+        return redirect('/dashboard/posts/')->with('warning', 'Success created new post');
+        // return redirect('/dashboard/posts/')->with('toast_success', 'Success created new post');
     }
 
     /**

@@ -7,13 +7,14 @@
 
     <div class="table-responsive col-lg-8 alert">
 
-        @if (session()->has('success'))
+        {{-- @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
             </div>
-        @endif
+        @endif --}}
 
+        <button type="button" class="btn btn-primary mb-3">Sweet Alert</button>
         <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create Posts</a>
         <table class="table table-striped table-sm">
             <thead>

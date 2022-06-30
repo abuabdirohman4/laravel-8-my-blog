@@ -12,6 +12,7 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="/css/sweetAlert.css" rel="stylesheet">
 
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="/css/trix.css">
@@ -51,6 +52,8 @@
     </script>
 
     <script src="/js/dashboard.js"></script>
+
+    @include('sweetalert::alert')
 
     @stack('script')
 </body>

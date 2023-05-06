@@ -13,6 +13,17 @@
 
     {{-- My Styles --}}
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+      .text-truncate-container {
+          /* width: 250px; */
+      }
+      .text-truncate-container .line-clamp {
+          -webkit-line-clamp: 3;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+      }
+    </style>
 
     <title>My Blog | {{ $title }}</title>
   </head>

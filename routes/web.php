@@ -10,12 +10,12 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardPostController;
 
-Route::get('/', function () {
-    return view('landingpage.home', [
-        "title" => "Home",
-        "active" => "home",
-    ]);
-})->name('home');
+// Route::get('/', function () {
+//     return view('landingpage.home', [
+//         "title" => "Home",
+//         "active" => "home",
+//     ]);
+// })->name('home');
 Route::get('/about', function () {
     return view('landingpage.about', [
         "title" => "About",
@@ -70,8 +70,11 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
 
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+// Route::get('/posts', [PostController::class, 'index']);
+// Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
+Route::get('/', [PostController::class, 'index'])->name('home');;
+Route::get('/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/storage-link', function () {
     Artisan::call('storage:link');

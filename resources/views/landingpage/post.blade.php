@@ -9,8 +9,8 @@
                 <h1 class="mb-3">{{ $post->title }}</h1>
 
                 <p>
-                    By <a href="/posts?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a>
-                    in <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>
+                    By <a href="/?author={{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a>
+                    in <a href="/?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a>
                 </p>
 
                 @if ($post->image)
@@ -25,7 +25,7 @@
                     {!! $post->body !!}
                 </article>
 
-                <a href="/posts" class="d-block mt-3 text-decoration-none">Back To Posts</a>
+                <a href="/" class="d-block mt-3 text-decoration-none">Back To Posts</a>
             </div>
         </div>
     </div>
